@@ -7,10 +7,10 @@ import {
 
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
+import { addContact } from 'redux/contacts/operations';
 import { toast } from 'react-toastify';
 import { notificationParams } from 'settings/settings';
-import { getContacts } from 'redux/selectors';
+import { getContacts } from 'redux/contacts/selectors';
 
 export function ContactForm() {
   const [name, setName] = useState('');
