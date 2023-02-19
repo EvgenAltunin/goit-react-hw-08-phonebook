@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { contactsInitState } from 'redux/contacts/init-state';
 import { contactsReducer } from 'redux/contacts/contacts.slice';
 import { filterReducer } from 'redux/contacts/filter.slice';
+import { authReducer } from 'redux/auth/auth.slice';
 
 
 
@@ -18,7 +19,8 @@ export const store = configureStore({
   devTools: true,
   reducer: {
     contacts: contactsReducer,
-    filter: filterReducer
+    filter: filterReducer,
+    auth: authReducer,
   },
 });
 
