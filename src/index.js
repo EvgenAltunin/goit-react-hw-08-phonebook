@@ -8,6 +8,9 @@ import { theme } from 'components/Theme/Theme';
 import { store} from './redux/store';
 import { Provider } from 'react-redux';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { notificationParams } from 'settings/settings';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,6 +18,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ThemeProvider theme={theme}>
         <BrowserRouter basename="goit-react-hw-08-phonebook">
           <App />
+          <ToastContainer
+            theme="colored"
+            autoClose={notificationParams.autoClose}
+          />
+          ;
         </BrowserRouter>
       </ThemeProvider>
     </Provider>

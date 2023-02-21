@@ -53,6 +53,7 @@ export const Submit = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-top: 8px;
   height: 30px;
   min-width: 80px;
   border: 3px solid;

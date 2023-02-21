@@ -42,7 +42,7 @@ export function ContactForm() {
       toast.warning(`${name} is already in contacts!`, { notificationParams });
     } else {
       dispatch(addContact({ name, number }));
-      toast.success(`${name} added to your contacts!`);
+
     }
     setName('');
     setNumber('');

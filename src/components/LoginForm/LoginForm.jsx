@@ -5,6 +5,8 @@ import {
   Submit,
 } from 'components/LoginForm/LoginForm.styled';
 import { RiEyeCloseFill, RiEyeFill } from 'react-icons/ri';
+import { toast } from 'react-toastify';
+
 
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -13,7 +15,7 @@ import { login } from 'redux/auth/auth.operations';
 export function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-   const [isPass, setIsPass] = useState(true);
+  const [isPass, setIsPass] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -33,6 +35,12 @@ export function LoginForm() {
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
+    const password = form.password.value;
+    console.log(password.length);
+    if (password.length < 7) {
+      toast.warning('Password must be at least 7 characters long!');
+      return;
+    }
 
     dispatch(
       login({
@@ -64,15 +72,20 @@ export function LoginForm() {
             type={isPass ? 'password' : 'text'}
             name="password"
             required
+            title="The password must be at least 7 characters long and contain an uppercase and lowercase letter"
             onChange={handleChange}
             value={password}
           />
           <button
             type="button"
-            style={{ display: 'block' }}
+            style={{ display: 'block', border: 'none', cursor: 'pointer' }}
             onClick={() => setIsPass(prev => !prev)}
           >
-            {isPass ? <RiEyeFill /> : <RiEyeCloseFill />}
+            {isPass ? (
+              <RiEyeFill style={{ color: 'orange' }} />
+            ) : (
+              <RiEyeCloseFill style={{ color: 'orange' }} />
+            )}
           </button>
         </div>
       </Lable>

@@ -5,6 +5,8 @@ import {
   Submit,
 } from 'components/RegisterForm/RegisterForm.styled';
 
+import { toast } from 'react-toastify';
+
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -39,7 +41,12 @@ export function RegisterForm() {
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
-
+    const password = form.password.value;
+    console.log(password.length);
+    if (password.length < 7) {
+      toast.warning('Password must be at least 7 characters long!');
+      return;
+    }
     dispatch(
       register({
         name: form.name.value,
@@ -86,10 +93,14 @@ export function RegisterForm() {
           />
           <button
             type="button"
-            style={{ display: 'block' }}
+            style={{ display: 'block', border: 'none', cursor:'pointer' }}
             onClick={() => setIsPass(prev => !prev)}
           >
-            {isPass ? <RiEyeFill /> : <RiEyeCloseFill />}
+            {isPass ? (
+              <RiEyeFill style={{ color: 'orange' }} />
+            ) : (
+              <RiEyeCloseFill style={{ color: 'orange' }} />
+            )}
           </button>
         </div>
       </Lable>
