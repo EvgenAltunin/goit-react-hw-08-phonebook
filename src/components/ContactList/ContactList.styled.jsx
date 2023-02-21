@@ -4,6 +4,7 @@ export const ContactsList = styled.ul`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+
   overflow: hidden;
   background-color: ${props => props.theme.colors.white};
 

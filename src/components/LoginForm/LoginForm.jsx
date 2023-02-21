@@ -4,6 +4,7 @@ import {
   Input,
   Submit,
 } from 'components/LoginForm/LoginForm.styled';
+import { RiEyeCloseFill, RiEyeFill } from 'react-icons/ri';
 
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -12,6 +13,7 @@ import { login } from 'redux/auth/auth.operations';
 export function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+   const [isPass, setIsPass] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -57,15 +59,24 @@ export function LoginForm() {
       </Lable>
       <Lable>
         Password
-        <Input
-          type="password"
-          name="password"
-          required
-          onChange={handleChange}
-          value={password}
-        />
+        <div style={{ display: 'flex' }}>
+          <Input
+            type={isPass ? 'password' : 'text'}
+            name="password"
+            required
+            onChange={handleChange}
+            value={password}
+          />
+          <button
+            type="button"
+            style={{ display: 'block' }}
+            onClick={() => setIsPass(prev => !prev)}
+          >
+            {isPass ? <RiEyeFill /> : <RiEyeCloseFill />}
+          </button>
+        </div>
       </Lable>
-      <Submit type="submit">LogIn</Submit>
+      <Submit type="submit">Log In</Submit>
     </ContactEditor>
   );
 }

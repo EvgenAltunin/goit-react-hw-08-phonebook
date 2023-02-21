@@ -5,16 +5,18 @@ import {
   Submit,
 } from 'components/RegisterForm/RegisterForm.styled';
 
-
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { register } from 'redux/auth/auth.operations';
+
+import { RiEyeCloseFill, RiEyeFill } from 'react-icons/ri';
 
 export function RegisterForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [isPass, setIsPass] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -45,9 +47,9 @@ export function RegisterForm() {
         password: form.password.value,
       })
     );
-    setName('')
-    setEmail('')
-    setPassword('')
+    setName('');
+    setEmail('');
+    setPassword('');
   };
 
   return (
@@ -74,15 +76,25 @@ export function RegisterForm() {
       </Lable>
       <Lable>
         Password
-        <Input
-          type="password"
-          name="password"
-          required
-          onChange={handleChange}
-          value={password}
-        />
+        <div style={{ display: 'flex' }}>
+          <Input
+            type={isPass ? 'password' : 'text'}
+            name="password"
+            required
+            onChange={handleChange}
+            value={password}
+          />
+          <button
+            type="button"
+            style={{ display: 'block' }}
+            onClick={() => setIsPass(prev => !prev)}
+          >
+            {isPass ? <RiEyeFill /> : <RiEyeCloseFill />}
+          </button>
+        </div>
       </Lable>
-      <Submit type="submit">SignUp</Submit>
+      <NavLink to="/login">Already have account?</NavLink>
+      <Submit type="submit">Sign Up</Submit>
     </ContactEditor>
   );
 }
