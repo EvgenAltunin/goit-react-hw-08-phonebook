@@ -45,9 +45,7 @@ export const Input = styled.input`
   outline: none;
 `;
 
-export const LinkStyled = styled(NavLink)`
-
-`
+export const LinkStyled = styled(NavLink)``;
 
 export const Submit = styled.button`
   display: inline-flex;

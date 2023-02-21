@@ -45,4 +45,3 @@ export const ContactItem = ({ contact }) => {
     </Item>
   );
 };
-

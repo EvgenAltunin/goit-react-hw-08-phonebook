@@ -6,7 +6,7 @@ import { Wrapper, LogoutBtn, Text } from 'components/UserMenu/UserMenu.styled';
 
 export const UserMenu = () => {
   const { user } = useAuth();
- const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <Wrapper>

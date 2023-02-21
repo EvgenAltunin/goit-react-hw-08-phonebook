@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
 
-
   @media screen and (min-width: 530px) {
     gap: 20px;
   }
@@ -51,4 +50,3 @@ export const Text = styled.p`
     min-width: 240px;
   }
 `;
-

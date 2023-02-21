@@ -93,7 +93,7 @@ export function RegisterForm() {
           />
           <button
             type="button"
-            style={{ display: 'block', border: 'none', cursor:'pointer' }}
+            style={{ display: 'block', border: 'none', cursor: 'pointer' }}
             onClick={() => setIsPass(prev => !prev)}
           >
             {isPass ? (

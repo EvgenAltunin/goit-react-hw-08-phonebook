@@ -9,16 +9,17 @@ export const Nav = styled.nav`
 `;
 
 export const LinkStyled = styled(NavLink)`
-  color: black;
+  color: ${props => props.theme.colors.text};
   padding-right: 20px;
   font-weight: bold;
+  font-size: 18px;
   text-decoration: none;
   cursor: pointer;
   &.active {
-    color: orange;
+    color: ${props => props.theme.colors.accentColor};
   }
   :hover:not(.active),
   :focus:not(.active) {
-    color: #858585;
+    color: #${props => props.theme.colors.hoverColor};
   }
 `;

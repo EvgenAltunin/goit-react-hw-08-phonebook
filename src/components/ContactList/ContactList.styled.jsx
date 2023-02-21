@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ContactsList = styled.ul`
   margin-left: auto;
@@ -21,8 +21,3 @@ export const ContactsList = styled.ul`
     max-width: 500px;
   }
 `;
-
-
-
-
-
