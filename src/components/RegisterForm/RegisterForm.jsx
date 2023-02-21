@@ -42,7 +42,7 @@ export function RegisterForm() {
     event.preventDefault();
     const form = event.currentTarget;
     const password = form.password.value;
-    console.log(password.length);
+
     if (password.length < 7) {
       toast.warning('Password must be at least 7 characters long!');
       return;
