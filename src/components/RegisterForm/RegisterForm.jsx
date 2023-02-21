@@ -3,6 +3,9 @@ import {
   Lable,
   Input,
   Submit,
+  IconEyeOpen,
+  IconEyeClose,
+  PasswordTogleBtn,
 } from 'components/RegisterForm/RegisterForm.styled';
 
 import { toast } from 'react-toastify';
@@ -11,8 +14,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { register } from 'redux/auth/auth.operations';
-
-import { RiEyeCloseFill, RiEyeFill } from 'react-icons/ri';
 
 export function RegisterForm() {
   const [name, setName] = useState('');
@@ -91,17 +92,9 @@ export function RegisterForm() {
             onChange={handleChange}
             value={password}
           />
-          <button
-            type="button"
-            style={{ display: 'block', border: 'none', cursor: 'pointer' }}
-            onClick={() => setIsPass(prev => !prev)}
-          >
-            {isPass ? (
-              <RiEyeFill style={{ color: 'orange' }} />
-            ) : (
-              <RiEyeCloseFill style={{ color: 'orange' }} />
-            )}
-          </button>
+          <PasswordTogleBtn  type="button" onClick={() => setIsPass(prev => !prev)} >
+            {isPass ? <IconEyeOpen /> : <IconEyeClose />}
+          </PasswordTogleBtn>
         </div>
       </Lable>
       <NavLink to="/login">Already have account?</NavLink>

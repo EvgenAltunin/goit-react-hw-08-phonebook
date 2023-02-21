@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { RiEyeCloseFill, RiEyeFill } from 'react-icons/ri';
 
 export const ContactEditor = styled.form`
   display: flex;
@@ -69,3 +70,22 @@ export const Submit = styled.button`
     color: ${props => props.theme.colors.text};
   }
 `;
+
+export const PasswordTogleBtn = styled.button`
+  display: block;
+  border: none;
+  background-color: transparent;
+`
+
+export const IconEyeOpen = styled(RiEyeFill)`
+  color: ${props => props.theme.colors.accentColor};
+  width: 20px;
+  height: 20px;
+`;
+
+export const IconEyeClose = styled(RiEyeCloseFill)`
+  color: ${props => props.theme.colors.accentColor};
+  width: 20px;
+  height: 20px;
+`;
+

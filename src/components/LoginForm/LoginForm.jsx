@@ -3,8 +3,10 @@ import {
   Lable,
   Input,
   Submit,
+  IconEyeOpen,
+  IconEyeClose,
+  PasswordTogleBtn,
 } from 'components/LoginForm/LoginForm.styled';
-import { RiEyeCloseFill, RiEyeFill } from 'react-icons/ri';
 import { toast } from 'react-toastify';
 
 import { useState } from 'react';
@@ -75,17 +77,9 @@ export function LoginForm() {
             onChange={handleChange}
             value={password}
           />
-          <button
-            type="button"
-            style={{ display: 'block', border: 'none', cursor: 'pointer' }}
-            onClick={() => setIsPass(prev => !prev)}
-          >
-            {isPass ? (
-              <RiEyeFill style={{ color: 'orange' }} />
-            ) : (
-              <RiEyeCloseFill style={{ color: 'orange' }} />
-            )}
-          </button>
+          <PasswordTogleBtn type="button" onClick={() => setIsPass(prev => !prev)} >
+            {isPass ? <IconEyeOpen /> : <IconEyeClose />}
+          </PasswordTogleBtn>
         </div>
       </Lable>
       <Submit type="submit">Log In</Submit>
